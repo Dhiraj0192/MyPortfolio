@@ -10,7 +10,8 @@ import { useRouter } from 'next/navigation'
 export const HeroSection = () => {
   const router = useRouter();
   return (
-    <div className="py-32 md:py-38 lg:py-40 lg:flex lg:gap-10 lg:px-20 overflow-x-clip">
+    <div className="py-32 md:py-38 lg:py-30 lg:-mb-10 lg:flex lg:gap-10 lg:px-20 overflow-x-clip">
+
       <div className="w-full h-full fixed right-0 top-0 -z-20">
       <ParticlesContainer></ParticlesContainer>
       </div>

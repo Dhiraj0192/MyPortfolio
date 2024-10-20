@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 export const ContactSection = () => {
   const router = useRouter();
-  return <div className='py-12 pt-16'>
+  return <div className='py-12 pt-5'>
     <div className="container">
     <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 rounded-3xl text-center relative">
     <h2 className='font-serif text-2xl '>Let's create something amazing together</h2>

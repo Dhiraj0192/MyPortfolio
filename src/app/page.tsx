@@ -11,6 +11,10 @@ import { Footer } from "@/sections/Footer";
 
 
 import { useEffect, useRef, useState } from 'react';
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { FaHome } from "react-icons/fa";
+import Experience from "@/sections/Experience";
+import Approach from "@/sections/Approach";
 
 const ScrollAudio: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -50,15 +54,24 @@ const ScrollAudio: React.FC = () => {
 
 
 export default function Home() {
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "About", link: "#about" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact", link: "/contactme" },
+  ];
   return (
     <div>
       
       <Circles/>
-      <Header/>
+      <FloatingNav navItems={navItems}></FloatingNav>
       <HeroSection/>
+      <TapeSection/>
       <ProjectsSection/>
       <TapeSection/>
       <AboutSection/>
+      <Experience/>
+      <Approach/>
       <ContactSection/>
       <Footer/>
     </div>

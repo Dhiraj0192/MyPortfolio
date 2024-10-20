@@ -9,8 +9,9 @@ import ParticlesContainer from "@/components/ParticlesContainer";
 
 import { BsArrowRight } from "react-icons/bs";
 import { Footer } from "@/sections/Footer";
-import { ContactHeader } from "@/sections/ContactHeader";
+import { FloatingNav } from "@/components/ui/floating-navbar";
 
+import Swal from 'sweetalert2';
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -19,8 +20,39 @@ const calistoga = Calistoga({
 });
 
 const ContactMePage: NextPage = () => {
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "Projects", link: "/projects" },
+    { name: "Contact", link: "/contactme" },
+  ];
+
+  async function handleSubmit(event:any) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "2ff9d239-e1ce-401b-9821-4f461cce0139");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+    const result = await response.json();
+    if (result.success) {
+      Swal.fire({
+        title: "Success!",
+        text: "Message sent successfully!",
+        icon: "success"
+      });
+    }
+  }
   return (
-    
     <div
       className={twMerge(
         inter.variable,
@@ -28,15 +60,13 @@ const ContactMePage: NextPage = () => {
         " text-white antialiased font-sans"
       )}
     >
-      
-      
       <Circles />
-      <ContactHeader/>
+      <FloatingNav navItems={navItems}></FloatingNav>
 
-      <div className="mt-40 mb-10" >
-      <div className="w-full h-full fixed right-0 top-0 -z-20">
-        <ParticlesContainer></ParticlesContainer>
-      </div>
+      <div className="mt-40 mb-10">
+        <div className="w-full h-full fixed right-0 top-0 -z-20">
+          <ParticlesContainer></ParticlesContainer>
+        </div>
         <div className="container flex flex-col items-center">
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
             Let's Connect
@@ -47,30 +77,38 @@ const ContactMePage: NextPage = () => {
             how I can help you achieve your goals..
           </p>
           {/* form */}
-          <form className="flex flex-col gap-6 mt-16 mb-10 md:w-[70%] w-[95%]">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6 mt-16 mb-10 md:w-[70%] w-[95%]">
             {/* input form */}
             <div className="flex gap-x-6">
               <input
                 type="text"
                 placeholder="Name"
+                name="name"
                 className="input focus:border-emerald-300"
+                required
               ></input>
               <input
                 type="text"
                 placeholder="Email"
+                name="email"
                 className="input focus:border-emerald-300"
+                required
               ></input>
             </div>
             <input
               type="text"
               placeholder="Subject"
+              name="subject"
               className="input focus:border-emerald-300"
+              required
             ></input>
             <textarea
               placeholder="Message"
+              name="message"
               className="textarea focus:border-emerald-300"
+              required
             ></textarea>
-            <button className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:focus:border-emerald-300 group">
+            <button type="submit" className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:focus:border-emerald-300 group">
               <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
                 Let's Talk
               </span>
@@ -81,7 +119,7 @@ const ContactMePage: NextPage = () => {
       </div>
 
       <div className="relative lg:relative md:absolute md:bottom-0 w-full">
-      <Footer />
+        <Footer />
       </div>
     </div>
   );

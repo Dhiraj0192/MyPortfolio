@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 export const ProjectsSection = () => {
   const router = useRouter();
   return (
-    <section className="pb-16 lg:py-24" id="projects">
+    <section className="pb-16 lg:py-10 sm:pt-10" id="projects">
       <div className="container">
         <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
           Real-world Results
@@ -22,13 +22,13 @@ export const ProjectsSection = () => {
           This section highlights my past projects. Let's explore and connect to
           discuss how I can help build your next innovative project!
         </p>
-        <div className="lg:flex lg:flex-row lg:gap-5">
+        <div className="lg:flex lg:flex-row lg:gap-5 lg:justify-center">
           <div className="flex flex-col mt-10 md:mt-20 gap-8">
             {portfolioProjects.map((projects, prjectsIndex) => (
               <div
                 key={projects.title}
-                className="bg-gray-800 rounded-3xl after:content-[''] after:absolute
-                after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-5 sticky lg:h-[49vh]"
+                className="bg-gray-900 rounded-3xl after:content-[''] after:absolute
+                after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-5 sticky lg:h-[49vh] lg:w-[25vw]"
                 style={{
                   top: `calc(130px + ${prjectsIndex * 40}px`,
                 }}
@@ -69,7 +69,7 @@ export const ProjectsSection = () => {
             {portfolioProjects.map((projects, prjectsIndex) => (
               <div
                 key={projects.title}
-                className="bg-gray-800 rounded-3xl after:content-[''] after:absolute after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-10 sticky w-[50vw] h-[49vh]"
+                className="bg-gray-900 rounded-3xl after:content-[''] after:absolute after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-10 sticky w-[49vw] h-[49vh]"
                 style={{
                   top: `calc(130px + ${prjectsIndex * 40}px`,
                 }}
@@ -84,13 +84,7 @@ export const ProjectsSection = () => {
                       className="mt-8 lg:mt-0 lg:absolute -mb-4 border border-white"
                     ></Image>
                   </div>
-                  <div>
-                    <Image
-                      src={projects.image2}
-                      alt={projects.title}
-                      className="mt-8 lg:mt-0 lg:absolute -mb-4 border border-white"
-                    ></Image>
-                  </div>
+                  
                 </div>
               </div>
             ))}

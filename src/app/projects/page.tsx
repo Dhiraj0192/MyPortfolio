@@ -11,12 +11,12 @@ import Image from "next/image";
 
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
 import { Footer } from "@/sections/Footer";
-import { ProjectHeader } from "@/sections/ProjectHeader";
 
 import portfolioProjects from "@/assets/projectDb/projectDb";
 
 import { useRouter } from "next/navigation";
 import { ProjectFooter } from "@/sections/ProjectFooter";
+import { FloatingNav } from "@/components/ui/floating-navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -27,6 +27,11 @@ const calistoga = Calistoga({
 
 const ProjectsPage: NextPage = () => {
   const router = useRouter();
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "Projects", link: "/projects" },
+    { name: "Contact", link: "/contactme" },
+  ];
   return (
     <div
       className={twMerge(
@@ -37,7 +42,7 @@ const ProjectsPage: NextPage = () => {
     >
       <Circles />
       <div className="">
-      <ProjectHeader />
+      <FloatingNav navItems={navItems}></FloatingNav>
       </div>
 
       <div className="mt-24 mb-10 w-full">
@@ -84,7 +89,7 @@ const ProjectsPage: NextPage = () => {
               {portfolioProjects.map((projects, prjectsIndex) => (
                 <div
                   key={projects.title}
-                  className="bg-gray-800 rounded-3xl after:content-[''] after:absolute
+                  className="bg-gray-900 rounded-3xl after:content-[''] after:absolute
                 after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-5 relative lg:h-[49vh]"
                 >
                   <div className="">
@@ -123,7 +128,7 @@ const ProjectsPage: NextPage = () => {
               {portfolioProjects.map((projects, prjectsIndex) => (
                 <div
                   key={projects.title}
-                  className="bg-gray-800 rounded-3xl after:content-[''] after:absolute after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-10 relative w-[30vw] h-[49vh]"
+                  className="bg-gray-900 rounded-3xl after:content-[''] after:absolute after:inset-0 z-0 after:z-10 overflow-hidden after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-8 lg:px-10 relative w-[30vw] h-[49vh]"
                 >
                   <div className="lg:grid lg:grid-cols-2 lg:gap-10">
                     <div>
