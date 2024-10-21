@@ -84,7 +84,7 @@ const ProjectsPage: NextPage = () => {
             </div>
             
           </div>
-          <div className="lg:flex lg:flex-row lg:gap-5 lg:ml-[39%] ">
+          <div className="md:flex md:flex-row lg:flex lg:flex-row lg:gap-5 lg:ml-[39%] ">
             <div className="flex flex-col mt-10 md:mt-20 gap-8">
               {portfolioProjects.map((projects, prjectsIndex) => (
                 <div
@@ -146,7 +146,7 @@ const ProjectsPage: NextPage = () => {
         </div>
       </div>
 
-      <div className="relative lg:hidden md:absolute md:bottom-0 w-full">
+      <div className="relative lg:hidden md:block w-full">
         <Footer />
       </div>
     </div>
