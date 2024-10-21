@@ -3,19 +3,19 @@ import ArrowUpRightIcon from '@/assets/icons/arrow-up-right.svg';
 const footerLinks = [
   {
     title: "Discord",
-    href: "#"
+    href: "https://discordapp.com/users/DhirajYadav#6360"
   },
-  {
-    title: "Twitter",
-    href: "#"
-  },
-  {
-    title: "LinkedIn",
-    href: "#"
-  },
+  // {
+  //   title: "Twitter",
+  //   href: "#"
+  // },
+  // {
+  //   title: "LinkedIn",
+  //   href: "#"
+  // },
   {
     title: "Facebook",
-    href: "#"
+    href: "https://www.facebook.com/profile.php?id=100088721905616"
   },
 ]
 
